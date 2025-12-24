@@ -1,7 +1,7 @@
 #include <stdio.h>
 
 int main(void){
-    printf("asdasd12345asdfa");
+    printf("asda");
 
     return 0;
 }
