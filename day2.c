@@ -1,11 +1,27 @@
 #include <stdio.h>
 
-int main(void){
-    int a = 25;
-    int b = 35;
-    int c = a + b;
+int avg(int x, int y)
+{
+    int average;
 
-    printf("%d", c);
+    average = (x + y)/2;
+
+    return average;
+}
+
+int main(void)
+{
+    int a, b;
+    int result = 0;
+
+    printf("Insert the first number:");
+    scanf("%d", &a);
+    printf("Insert the second number:");
+    scanf("%d", &b);
+
+    result = avg(a, b);
+    printf("Average of two numbers : %d\n", result);
 
     return 0;
 }
+
