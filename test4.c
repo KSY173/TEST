@@ -1,7 +1,8 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-int main(void) {
-    
+int main(void) 
+{
     int N, i;
     double battery[100];
     int warning = 0;  // 0: OFF, 1: ON

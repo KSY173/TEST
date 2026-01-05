@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+//함수 만들기 예제
 const double pi = 3.141592;
 
 double conv_deg_to_rad(double x)
