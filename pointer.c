@@ -48,22 +48,73 @@ int main(void)
 
 
 
-
-
+/*
+void input_ary(double *pa, int size);
+double find_max(double *pa, int size);
 
 int main(void)
 {
-   int ary[5] = {10, 20, 30, 40, 50};
-   int *pa = ary;
-   int *pb = pa + 3;
-   printf("pa : %u\n", pa);
-   printf("pb : %u\n", pb);
-   pa++;
-   printf("pb - pa : %u\n", pb - pa);
-   printf("pa : %u\n", pa);
-   printf("앞에 있는 배열 요소의 값 출력: ");
-   if (pa < pb) printf("%d\n", *pa);
-   else printf("%d\n", *pb);
-   return 0;
+    double ary[5];
+    double max;
+    int size = sizeof(ary) / sizeof(ary[0]); //배열의 크기 구하는 것
+
+    input_ary(ary, size);
+    max = find_max(ary, size);
+    printf("max of array : %.1lf\n", max);
+
+    return 0;
+}
+
+void input_ary(double *pa, int size)
+{
+    int i;
+
+    printf("%d개의 실수값 입력 : ", size);
+    for (i = 0; i < size; i++)
+    {
+        scanf("%lf", pa + i);
+    }
+}
+
+double find_max(double *pa, int size)
+{
+    double max;
+    int i;
+
+    max = pa[0];
+    for(i = 1; i < size; i++)
+    {
+        if (pa[i] > max) max = pa[i];
+    }
+
+    return max;
+}
+*/
+
+
+
+void print_month(int *mp)
+{
+    int i;
+
+    for(i=0; i<12; i++)
+    {
+        int mth = mp[i];
+
+        printf("%5d", mth);
+        if((i + 1) % 5 == 0)
+        {
+            printf("\n");
+        }
+    }
+}
+
+int main(void)
+{
+    int month[12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+
+    print_month(month);
+
+    return 0;
 }
 
