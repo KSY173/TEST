@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <stdlib.h>
+#include <string.h>
 
 /*
 int main(void)
@@ -152,5 +152,359 @@ int main(void)
     printf("%s is %s", ani, why);
 
     return 0;
+}
+*/
+
+
+
+
+
+
+/*
+int main(void)
+{
+    char str1[80], str2[80];
+    char *resp;
+
+    printf("2개의 과일 이름 입력 : ");
+    scanf("%s%s", str1, str2);
+    if (strlen(str1) > strlen(str2))
+        resp = str1;
+    else   
+        resp = str2;
+    printf("이름이 긴 과일은 : %s\n", resp);
+
+    return 0;
+}
+*/
+
+
+
+
+
+
+//strcpy
+
+/*
+void copy(char *ps1, char *ps2);
+
+int main(void)
+{
+    
+    char str1[80] = "strawberry";
+    char str2[80] = "apple";
+    char *ps1 = str1;
+    char *ps2 = str2;
+    
+
+    printf("최초 문자열 : %s\n", str1);
+
+    copy(ps1, ps2);
+
+    printf("바뀐 문자열 : %s\n", str1);
+
+    return 0;
+}
+
+void copy(char *ps1, char *ps2)
+{
+    int i;
+
+    for(i = 0; i < sizeof(ps2); i++)
+    {
+        if(*(ps2 + i) == '\0')
+        {
+            *(ps1 + i) = '\0';
+        }
+        else
+        {
+            *(ps1 + i) = *(ps2 + i);
+        }
+    }
+}
+*/
+
+//strcat
+/*
+void strattach(char *ps1, char *ps2, int size1, int size2);
+
+int main(void)
+{
+    char str1[80] = "straw";
+    char str2[80] = "berry";
+    char *ps1 = str1;
+    char *ps2 = str2;
+    int size1 = sizeof(str1);
+    int size2 = sizeof(str2);
+
+    strattach(ps1, ps2, size1, size2);
+
+    printf("%s\n", str1);
+
+    return 0;
+}
+
+void strattach(char *ps1, char *ps2, int size1, int size2)
+{
+    int i, j;
+    int count=0;
+
+    for(j = 0; j < size1; j++)
+    {
+        if(*(ps1 + j) != '\0')
+        {
+            count++;
+        }
+        else if(*(ps1 + j) == '\0') break;
+    }
+
+
+    for(i = 0; i < size2; i++)
+    {
+        if((*ps2 + i) != '\0')
+        {
+            *(ps1 + count + i) = *(ps2 + i);
+        }
+        else break;
+    }
+}
+*/
+
+//strncat
+/*
+void strnattach(char *ps1, char *ps2, int size1, int N);
+
+int main(void)
+{
+    char str1[80] = "straw";
+    char str2[80] = "piece";
+    char *ps1 = str1;
+    char *ps2 = str2;
+    int size1 = sizeof(str1);
+    int N = 3;
+
+    strnattach(ps1, ps2, size1, N);
+
+    printf("%s\n", str1);
+
+    return 0;
+}
+
+void strnattach(char *ps1, char *ps2, int size1, int N)
+{
+    int i, j;
+    int count=0;
+
+    for(j = 0; j < size1; j++)
+    {
+        if(*(ps1 + j) != '\0')
+        {
+            count++;
+        }
+        else if(*(ps1 + j) == '\0') break;
+    }
+
+
+    for(i = 0; i < N; i++)
+    {
+        if((*ps2 + i) != '\0')
+        {
+            *(ps1 + count + i) = *(ps2 + i);
+        }
+        else break;
+    }
+}
+*/
+
+
+//strlen
+/*
+int cntlen(int size1, int size2, char *ps1, char *ps2);
+
+int main(void)
+{
+    char str1[80], str2[80];
+    int res;
+    int size1 = sizeof(str1);
+    int size2 = sizeof(str2);
+    char *ps1 = str1;
+    char *ps2 = str2;
+
+    printf("2개의 과일 이름 입력 : ");
+    scanf("%s%s", str1, str2);
+
+    res = cntlen(size1, size2, ps1, ps2);
+
+    if(res == 1)
+    {
+        printf("이름이 긴 과일은 : %s\n", str1);
+    }
+    else if(res == 2)
+    {
+        printf("이름이 긴 과일은 : %s\n", str2);
+    }
+
+    return 0;
+}
+
+int cntlen(int size1, int size2, char *ps1, char *ps2)
+{
+    int i, j, res;
+    int count1 = 0;
+    int count2 = 0;
+
+    for (i=0; i < size1; i++)
+    {
+        if (*(ps1 + i) != '\0')
+        {
+            count1++;
+        }
+        else if(*(ps1 + i) == '\0')
+        break;
+    }
+
+    for (j=0; j < size2; j++)
+    {
+        if (*(ps2 + i) != '\0')
+        {
+            count2++;
+        }
+        else if(*(ps2 + i) == '\0')
+        break;
+    }
+
+    if(count1 > count2)
+    {
+        res = 1;
+    }
+    else if (count1 < count2)
+    {
+        res = 2;
+    }
+
+    return res;
+}
+*/
+
+//strcmp
+/*
+int strcompare(char *ps1, char *ps2, int size1, int size2);
+
+int main(void)
+{
+    char str1[80] = "pear";
+    char str2[80] = "peach";
+    char *ps1 = str1;
+    char *ps2 = str2;
+    int size1 = sizeof(str1);
+    int size2 = sizeof(str2);
+    int res;
+
+    res = strcompare(ps1, ps2, size1, size2);
+
+    printf("사전에 나중에 나오는 과일 이름 : ");
+    if(res > 0)
+    {
+        printf("%s\n", str1);
+    }
+    else
+        printf("%s\n", str2);
+
+    return 0;
+}
+
+int strcompare(char *ps1, char *ps2, int size1, int size2)
+{
+    int size, i, res;
+    int a, b;
+
+    if(size1 > size2)
+    {
+        size = size2;
+    }
+    else if(size1 < size2)
+    {
+        size = size1;
+    }
+    else if(size1 == size2)
+    {
+        size = size1;
+    }
+
+    for(i = 0; i < size; i++)
+    {
+        a = *(int *)ps1 + i;
+        b = *(int *)ps2 + i;
+
+        if((a == '\0') || (b == '\0'))
+        {
+            break;
+        }
+
+        if(a > b)
+        {
+            res = 1;
+        }
+        else if(a < b)
+        {
+            res = -1;
+        }
+    }
+
+    return res;
+}
+*/
+
+
+
+//strncmp
+/*
+int strncompare(char *ps1, char *ps2);
+
+int main(void)
+{
+    char str1[80] = "pear";
+    char str2[80] = "peach";
+    char *ps1 = str1;
+    char *ps2 = str2;
+    int size1 = sizeof(str1);
+    int size2 = sizeof(str2);
+    int res;
+
+    res = strncompare(ps1, ps2);
+    printf("%d\n", res);
+
+    printf("사전에 나중에 나오는 과일 이름 : ");
+    if(res > 0)
+    {
+        printf("%s\n", str1);
+    }
+    else
+        printf("%s\n", str2);
+
+    return 0;
+}
+
+int strncompare(char *ps1, char *ps2)
+{
+    int size, i, res;
+    int a, b;
+
+    for(i = 0; i < 2; i++)
+    {
+        a = *(int *)ps1 + i;
+        b = *(int *)ps2 + i;
+
+        if(a > b)
+        {
+            res = 1;
+        }
+        else if(a < b)
+        {
+            res = -1;
+        }
+    }
+
+    return res;
 }
 */
