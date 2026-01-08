@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include <string.h>
+#include <string.h>         //string 관련 함수 쓸 때 추가 필요
 
 /*
 int main(void)
@@ -62,7 +62,7 @@ int main(void)
     fgets(str, sizeof(str), stdin);
     str[strlen(str) - 1] = '\0';                // 입력 마지막에 치는 엔터를 널문자로 변환해서 출력 이상해지지 않도록 조정
 
-    printf("Entered string is %s.\n", str);     //fgets는 엔터까지 포함해서 apple jam\n\0으로 저장됨
+    printf("Entered string is %s.\n", str);     //엔터를 널문자로 바꾸는 윗줄 코드가 없다면 fgets는 엔터까지 포함해서 apple jam\n\0으로 저장됨
 
     return 0;
 }

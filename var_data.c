@@ -61,7 +61,7 @@ int main(void)
 
 void auto_func(void)
 {
-    auto int a = 0;         //다시 함수 호출할 때마다 a값이 초기화 
+    auto int a = 0;         //다시 함수 호출할 때마다 a값이 0으로 초기화 
 
     a++;
     printf("%d\n", a);
@@ -69,7 +69,7 @@ void auto_func(void)
 
 void static_func(void)
 {
-    static int a;           //함수 내에서 a값이 메모리에 기억됨
+    static int a;           //함수 내에서 a값이 메모리에 기억됨, 0으로 초기화되고 시작
 
     a++;
     printf("%d\n", a);
@@ -83,7 +83,7 @@ void static_func(void)
 /*
 void static_func(void)
 {
-    static int x = 1;   //다시 호출해도 초기화 되지 않고 유지됨
+    static int x = 1;   //다시 호출해도 이전 값을 기억하기 때문에 초기화 되지 않고 유지됨
     x += 2;
     printf("%d\n", x);
 }
