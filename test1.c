@@ -105,7 +105,7 @@ int main(void)
 
 
 
-
+//10hz 일 때 1초 동안 distance 데이터 메모리에 저장, 1초만 메모리 할당하는 코드
 
 int main(void)
 {
@@ -114,59 +114,72 @@ int main(void)
     int min_index, i;
     int data = 360;
     int *pd;
+    int hz = 10;
+    int time = 0;
 
-    pd = (int *)malloc(sizeof(int)*data);
-    
-    if(pd == NULL)
+    for(i = 0; i < data * hz; i++)
     {
-        printf("# 메모리가 부족합니다.\n");
-        exit(1);
+        pd = (int *)malloc(sizeof(int)*data);
+
+        if(pd == NULL)
+        {
+            printf("# 메모리가 부족합니다.\n");
+            exit(1);
+        }
+
+        for(i = 0; i < data; i++)
+        {
+            pd[i] = (rand() % 501);
+        }
+
+        for(i = 0; i < (data-1); i++)
+        {
+            int step = (rand() % 20);
+            int delta = pd[i+1] - pd[i];
+
+            if (delta > 20)
+            {
+                pd[i+1] = pd[i] + step;
+            }
+            else if (delta < -20)
+            {
+                pd[i+1] = pd[i] - step;
+            }
+
+            if (pd[i] < 0)
+            {
+                pd[i] == 0;
+            }
+            else if (pd[i] > 500)
+            {
+                pd[i] == 500;
+            }
+        }
+
+        int min = pd[0];
+
+        for(i = 0; i < data; i++)
+        {
+            if(pd[i] < min)
+            {
+                min = pd[i];
+                min_index = i;
+            }
+        }
+
+        //1초 동안 작동했을 때의 최소값
+        printf("min : %d\n", min);
+        printf("min_index[degree] : %d\n", min_index);
+
+        time++;
+
+        free(pd);
+
+        if(time == 10)      //10초 작동
+        {
+            break;
+        }
     }
-
-    for(i = 0; i < data; i++)
-    {
-        pd[i] = (rand() % 501);             //0 ~ 500cm
-    }
-
-    for(i = 0; i < (data-1); i++)
-    {
-        int step = (rand() % 20);
-        int delta = pd[i+1] - pd[i];
-
-        if (delta > 20)
-        {
-            pd[i+1] = pd[i] + step;
-        }
-        else if (delta < -20)
-        {
-            pd[i+1] = pd[i] - step;
-        }
-
-        if (pd[i] < 0)
-        {
-            pd[i] == 0;
-        }
-        else if (pd[i] > 500)
-        {
-            pd[i] == 500;
-        }
-    }
-
-    int min = pd[0];
-
-    for(i = 0; i < data; i++)
-    {
-        if(pd[i] < min)
-        {
-            min = pd[i];
-            min_index = i;
-        }
-    }
-
-    printf("min : %d\n", min);
-    printf("min_index[degree] : %d\n", min_index);
-
-    free(pd);
 
     return 0;
 }

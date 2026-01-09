@@ -31,6 +31,14 @@ void swap(int num[])
 
 
 
+
+
+
+
+
+
+
+
 /*
 int main(void)
 {
@@ -45,6 +53,18 @@ int main(void)
     return 0;
 }
 */
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -90,6 +110,51 @@ double find_max(double *pa, int size)
     return max;
 }
 */
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+int main(void)
+{
+    char name[20] = "adf";            //이거는 배열에 문자열을 대입하는 것이 아니라 초기화
+    char (*pc) = name;                //배열은 가리키는 배열 포인터로 사용
+
+    //*pc = "asdf";                   //*pc는 문자 한 개를 의미, 문자 한 개 자리에 문자열 주소 상수를 넣는 것 불가능 
+    pc = "asdf";                      //pc가 "asdf"라는 문자열의 첫 글자 주소를 가리킴, 'a'를 가리키는 것
+    //name = "dasdf";                 //배열은 대입 불가능 strcpy(name, "dasdf");로 사용
+ 
+
+    printf("%s", pc);                //%s는 주소를 받아서 pc로 출력, %c는 *pc로 출력, 주소 받지 못함
+
+    return 0;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
