@@ -639,6 +639,8 @@ void move(Position *p, int dx, int dy)
 
 
 
+
+/*
 typedef struct{
     double left;
     double right;    
@@ -648,3 +650,39 @@ typedef struct{
     double linear;
     double angular;
 }RobotSpeed;
+
+RobotSpeed computeSpeed(WheelSpeed w, double wheel_radius, double wheel_distance)
+{
+    RobotSpeed rs;
+
+    rs.linear = wheel_radius*(w.right + w.left)/2.0;
+    rs.angular = wheel_radius*(w.right - w.left)/wheel_distance;
+
+    return rs;
+}
+
+int main(void)
+{
+    WheelSpeed ws;
+    RobotSpeed rs;
+
+    double radius;
+    double distance;
+
+    printf("왼쪽 바퀴 속도[rad/s]: ");
+    scanf("%lf", &ws.left);
+    printf("오른쪽 바퀴 속도[rad/s]: ");
+    scanf("%lf", &ws.right);
+    printf("바퀴 반지름[m]: ");
+    scanf("%lf", &radius);
+    printf("바퀴 간 거리[m]: ");
+    scanf("%lf", &distance);
+
+    rs = computeSpeed(ws, radius, distance);
+
+    printf("선속도: %.2lf [m/s]\n", rs.linear);
+    printf("각속도: %.2lf [rad/s]\n", rs.angular);
+
+    return 0;
+}
+*/
